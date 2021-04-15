@@ -42,7 +42,9 @@ h6 {
 
 span {
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
 }
 
 .main-color {
@@ -61,6 +63,7 @@ span {
   margin-left: 96px;
   margin-right: 8px;
   position: relative;
+  width: 100%;
 }
 
 .main-button {

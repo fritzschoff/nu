@@ -1,12 +1,13 @@
 import { FC, CSSProperties, ReactChild } from 'react'
 
 interface ButtonProps {
-  children: ReactChild
+  children: ReactChild,
+  onClick: () => void
 }
 
-const Button: FC<ButtonProps> = ({ children }) => {
+const Button: FC<ButtonProps> = ({ children, onClick }) => {
   return (
-    <button className="main-button">{children}</button>
+    <button className="main-button" onClick={onClick}>{children}</button>
   )
 }
 
