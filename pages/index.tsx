@@ -73,7 +73,8 @@ export default function Home() {
               </>)
                 : (
                   <>
-                    <Tabs value={index} onChange={handleChange} aria-label="tabs" indicatorColor="primary" color="primary">
+                    <Tabs value={index} onChange={handleChange} aria-label="tabs" indicatorColor="primary" color="primary"
+                      scrollButtons="auto" variant="scrollable">
                       <Tab label="Deposit & Stake" value={0} style={{ marginRight: 'auto' }}></Tab>
                       <Tab label="Staking Rewards" value={1} />
                       <Tab label="Stats" value={2} style={{ marginLeft: 'auto' }} />

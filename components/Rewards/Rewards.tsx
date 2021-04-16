@@ -34,7 +34,7 @@ const Rewards: FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', padding: '36px' }}>
       <span>Rewards</span>
-      <article style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+      <article style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }} className="centered-mobile">
         <div>
           <div style={{ marginLeft: '24px' }}>
             <h2>231312,232 NU</h2>
@@ -47,7 +47,7 @@ const Rewards: FC = () => {
         </div>
       </article>
       <Divider style={{ marginTop: '32px' }}></Divider>
-      <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '80px', marginBottom: 'auto' }}>
+      <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto', marginBottom: 'auto' }}>
         <OutlinedInput style={{ borderRadius: '15px', width: '100%' }} value={amount} onChange={handleChange} type="number"
           endAdornment={(
             <>
@@ -59,9 +59,10 @@ const Rewards: FC = () => {
               </InputAdornment>
             </>
           )} />
-        <div style={{ margin: '24px', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-          <Button onClick={withdraw}>Withdraw</Button>
-          <Button onClick={claimAndWithdraw}>Claim & Withdraw</Button>
+        <div style={{ margin: '24px', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}
+          className="centered-mobile">
+          <Button onClick={withdraw} style={{ margin: '8px' }}>Withdraw</Button>
+          <Button onClick={claimAndWithdraw} style={{ margin: '8px', }}>Claim & Withdraw</Button>
         </div>
       </article>
     </div>

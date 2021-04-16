@@ -112,6 +112,22 @@ caption {
   color: white;
   padding: 16px;
 }
- .clickable {
-   cursor: pointer;
- }
+
+.clickable {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .side-panel {
+    display: none;
+  }
+
+  .layout {
+    margin: 8px;
+    padding-top: 80px;
+  }
+
+  .centered-mobile {
+    justify-content: center !important;
+  }
+}
