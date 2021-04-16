@@ -45,8 +45,7 @@ export default function Home() {
       </Head>
       <Web3Context.Provider value={stateProvider}>
         <ThemeProvider theme={theme}>
-
-          <View>
+          <View disconnect={setProvider}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <h1 style={{ marginBottom: '64px' }}>STAKER<span className="main-color">.</span>PARTY</h1>
               {!stateProvider ? (<>
@@ -64,9 +63,9 @@ export default function Home() {
                 <Divider style={{ width: '70%', marginLeft: '0px' }}></Divider>
                 <article style={{ display: 'flex' }}>
                   <div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+                    <p style={{ padding: '24px' }}>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <a style={{ fontStyle: 'italic', marginTop: '24px' }}>Telegram</a>
                   </div>
                   <img src="/assets/nu.png" alt="nu logo" style={{ width: '72px', height: '72px' }} />

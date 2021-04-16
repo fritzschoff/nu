@@ -112,3 +112,6 @@ caption {
   color: white;
   padding: 16px;
 }
+ .clickable {
+   cursor: pointer;
+ }
