@@ -5,7 +5,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 interface Web3Panel {
   style?: CSSProperties,
   customRef?: LegacyRef<HTMLDivElement>
-  disconnect?: () => void
+  disconnect?: (state: object | null) => void
 }
 
 const Web3Panel: FC<Web3Panel> = ({ style, customRef, disconnect }) => {
