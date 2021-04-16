@@ -1,9 +1,9 @@
-import { ReactChild, useEffect, useRef } from 'react'
+import { Dispatch, ReactChild, useEffect, useRef } from 'react'
 import Web3Panel from '../Web3/Web3';
 
 interface View {
   children: ReactChild[],
-  disconnect?: () => void
+  disconnect?: Dispatch<any>
 }
 
 const View: React.FC<View> = ({ children, disconnect }) => {
