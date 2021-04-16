@@ -3,7 +3,10 @@ import { FC } from "react";
 const Stats: FC = () => {
   return (
     <section style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', padding: '36px' }}>
-      <article style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', flexGrow: 1, margin: '32px' }}>
+      <article style={{
+        display: 'flex', alignItems: 'center', flexDirection: 'column', flexGrow: 1,
+        margin: '32px', marginBottom: '0px', marginTop: '0px'
+      }}>
         <div style={{ marginBottom: '24px' }}>
           <h3>0.0 ETh</h3>
           <span>Total rewards</span>
@@ -17,7 +20,10 @@ const Stats: FC = () => {
           <span>End of program</span>
         </div>
       </article>
-      <article style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', flexGrow: 1, margin: '32px' }}>
+      <article style={{
+        display: 'flex', alignItems: 'center', flexDirection: 'column', flexGrow: 1,
+        margin: '32px', marginTop: '0px'
+      }}>
         <div style={{ marginBottom: '24px' }}>
           <h3>200 USD</h3>
           <span>Total deposits</span>

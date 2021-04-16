@@ -28,22 +28,29 @@ const Stake: FC = () => {
   }
   return (
     <>
-      <article style={{ display: 'flex', justifyContent: 'space-between', padding: '36px' }}>
+      <article style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', paddingTop: '36px' }}>
         <div>
-          <h3>23</h3>
-          <p>Staking Lots Purchased</p>
+
+          <div>
+            <h3>23</h3>
+            <p style={{ textAlign: 'center' }}>Staking Lots Purchased</p>
+          </div>
+          <div>
+            <h3>12</h3>
+            <p style={{ textAlign: 'center' }}>Eth Lots</p>
+          </div>
         </div>
         <div>
-          <h3>12</h3>
-          <p>Eth Lots</p>
-        </div>
-        <div>
-          <h3>11</h3>
-          <p>BTC Lots</p>
-        </div>
-        <div>
-          <h3>21M</h3>
-          <p>NU in pool</p>
+
+
+          <div>
+            <h3>11</h3>
+            <p style={{ textAlign: 'center' }}>BTC Lots</p>
+          </div>
+          <div>
+            <h3>21M</h3>
+            <p style={{ textAlign: 'center' }}>NU in pool</p>
+          </div>
         </div>
       </article>
       <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '80px', marginBottom: 'auto' }}>
@@ -58,9 +65,10 @@ const Stake: FC = () => {
               </InputAdornment>
             </>
           )} />
-        <div style={{ margin: '24px', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-          <Button onClick={approveContract} disabled={isApproved}>Approve</Button>
-          <Button onClick={sendTx} disabled={!isApproved}>Deposit</Button>
+        <div style={{ margin: '24px', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}
+          className="centered-mobile">
+          <Button onClick={approveContract} disabled={isApproved} style={{ margin: '16px' }}>Approve</Button>
+          <Button onClick={sendTx} disabled={!isApproved} style={{ margin: '16px' }}>Deposit</Button>
         </div>
       </article>
       <p>

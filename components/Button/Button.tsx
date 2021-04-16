@@ -3,12 +3,13 @@ import { FC, CSSProperties, ReactChild } from 'react'
 interface ButtonProps {
   children: ReactChild,
   onClick: () => void,
-  disabled?: boolean
+  disabled?: boolean,
+  style?: CSSProperties
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, disabled }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, disabled, ...other }) => {
   return (
-    <button className="main-button" onClick={onClick} disabled={disabled}>{children}</button>
+    <button className="main-button" onClick={onClick} disabled={disabled} {...other}>{children}</button>
   )
 }
 
