@@ -40,6 +40,10 @@ h6 {
   font-family: Parabole;
 }
 
+h3{
+  text-align: center;
+}
+
 span {
   font-family: inherit;
   font-size: 16px;
@@ -80,6 +84,16 @@ span {
   transition: all ease-in-out 300ms;
   cursor: pointer;
 }
+
+.main-button:disabled {
+  background-color: gray;
+}
+
+.main-button:hover:disabled {
+  transform: scale(1);
+  cursor: not-allowed;
+}
+
 
 .main-button:hover {
   transform: scale(1.04);
