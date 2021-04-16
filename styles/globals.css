@@ -40,7 +40,7 @@ h6 {
   font-family: Parabole;
 }
 
-h3{
+h3 {
   text-align: center;
 }
 
@@ -49,6 +49,14 @@ span {
   font-size: 16px;
   font-weight: 500;
   line-height: 28px;
+  letter-spacing: 2%;
+}
+
+caption {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #b4b4b4;
 }
 
 .main-color {
@@ -83,6 +91,7 @@ span {
   outline: none;
   transition: all ease-in-out 300ms;
   cursor: pointer;
+  letter-spacing: 2%;
 }
 
 .main-button:disabled {
@@ -93,7 +102,6 @@ span {
   transform: scale(1);
   cursor: not-allowed;
 }
-
 
 .main-button:hover {
   transform: scale(1.04);

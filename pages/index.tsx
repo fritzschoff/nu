@@ -8,6 +8,8 @@ import { Web3Context } from '../contexts/Web3.context';
 import { useState } from 'react';
 import { createMuiTheme, Tab, Tabs, ThemeProvider } from '@material-ui/core';
 import Stake from '../components/Stake/Stake'
+import Rewards from '../components/Rewards/Rewards'
+import Stats from '../components/Stats/Stats'
 
 export default function Home() {
   // Material UI
@@ -81,11 +83,11 @@ export default function Home() {
                       <Stake></Stake>
                     </TabPanel>
                     <TabPanel value={index} index={1}>
-                      Item Two
-                  </TabPanel>
+                      <Rewards></Rewards>
+                    </TabPanel>
                     <TabPanel value={index} index={2}>
-                      Item Three
-                  </TabPanel>
+                      <Stats></Stats>
+                    </TabPanel>
                   </>
                 )
               }
