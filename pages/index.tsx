@@ -122,9 +122,9 @@ export default function Home() {
                 </div>
               </section>
               <Divider style={{ width: '70%', marginLeft: '0px' }}></Divider>
-              <article style={{ display: 'flex', alignItems: 'center' }}>
+              <article style={{ display: 'flex' }}>
                 <div>
-                  <p style={{ padding: '24px' }}>
+                  <p style={{ margin: '24px 0px', }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <a style={{ fontStyle: 'italic', marginTop: '24px' }}>Telegram</a>
