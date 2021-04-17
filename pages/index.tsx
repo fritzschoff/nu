@@ -40,8 +40,29 @@ export default function Home() {
   return (
     <>
       <Head>
+        <meta charSet="utf-8" />
         <title>Staker Party</title>
+        <meta
+          property="og:title"
+          content="Staker Party"
+        />
+        <meta
+          name="description"
+          content="Stake your assets and earn some NU"
+        />
+        <meta
+          name="image"
+          content="/assets/nu.png"
+          key="ogtitle"
+        />
+        <meta
+          property="twitter:card"
+          content="/assets/nu.png"
+          key="twcard"
+        />
+        <meta property="og:type" content="website" key="ogtype" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Staker Party" key="title" />
       </Head>
       <Web3Context.Provider value={stateProvider}>
         <ThemeProvider theme={theme}>
