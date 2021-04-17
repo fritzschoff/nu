@@ -26,7 +26,7 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    paper: {
+    modal: {
       position: 'absolute',
       width: 'fit-content',
       backgroundColor: 'white',
@@ -115,7 +115,7 @@ export default function Home() {
           aria-labelledby="modal-title"
           aria-describedby="modal-description"
         >
-          <div style={modalStyle} className={classes.paper}>
+          <div style={modalStyle} className={classes.modal}>
             <h1>Choose a provider</h1>
             <Button style={{ background: 'transparent' }} onClick={() => handleConnect('metamask')}>
               <img src="/assets/metamask.png" width="200px" height="200px" />
@@ -172,6 +172,7 @@ export default function Home() {
               )
             }
           </Flex>
+          {/* Concent for side panel */}
           <h1>Whatever you want</h1>
         </View>
       </ThemeProvider>
