@@ -33,9 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: '1px solid #000',
       boxShadow: theme.shadows[5],
       borderRadius: '5px',
-      padding: theme.spacing(2, 4, 3),
-      display: 'flex',
-      flexWrap: 'wrap'
+      padding: theme.spacing(2, 4, 3)
     },
   }),
 );
@@ -108,23 +106,6 @@ export default function Home() {
         <meta property="og:title" content="Staker Party" key="title" />
       </Head>
       <ThemeProvider theme={theme}>
-        <Modal
-          disablePortal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-title"
-          aria-describedby="modal-description"
-        >
-          <div style={modalStyle} className={classes.modal}>
-            <h1>Choose a provider</h1>
-            <Button style={{ background: 'transparent' }} onClick={() => handleConnect('metamask')}>
-              <img src="/assets/metamask.png" width="200px" height="200px" />
-            </Button>
-            <Button style={{ background: 'transparent' }} onClick={() => handleConnect('walletConnect')}>
-              <img src="/assets/walletConnect.svg" width="200px" height="200px" />
-            </Button>
-          </div>
-        </Modal>
         <View>
           <Flex flexDirection="column">
             <h1 style={{ marginBottom: '64px' }}>STAKER<span className="main-color">.</span>PARTY</h1>
@@ -175,6 +156,27 @@ export default function Home() {
           {/* Concent for side panel */}
           <h1>Whatever you want</h1>
         </View>
+        <Modal
+          disablePortal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
+        >
+          <div style={modalStyle} className={classes.modal}>
+            <h1 style={{ textAlign: 'center' }}>Choose a provider </h1>
+            <Button style={{ backgroundColor: 'transparent', fontStyle: 'normal', position: 'absolute', top: 0, right: 0 }}
+              onClick={handleClose}>X</Button>
+            <Flex flexWrap="wrap">
+              <Button style={{ background: 'transparent' }} onClick={() => handleConnect('metamask')}>
+                <img src="/assets/metamask.png" width="200px" height="200px" />
+              </Button>
+              <Button style={{ background: 'transparent' }} onClick={() => handleConnect('walletConnect')}>
+                <img src="/assets/walletConnect.svg" width="200px" height="200px" />
+              </Button>
+            </Flex>
+          </div>
+        </Modal>
       </ThemeProvider>
     </>
   )
