@@ -51,17 +51,12 @@ const Stake: FC = () => {
           </div>
         </div>
       </article>
-      <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '80px', marginBottom: 'auto' }}>
+      <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '24px'}}>
         <OutlinedInput style={{ borderRadius: '15px', width: '100%' }} value={amount} onChange={handleChange} type="number"
           endAdornment={(
-            <>
-              <InputAdornment position="end" style={{ alignItems: 'initial' }} onClick={getMaxNu}>
-                <MaterialButton><span style={{ fontStyle: 'italic', fontWeight: 600 }}>Max</span></MaterialButton>
-              </InputAdornment>
-              <InputAdornment position="end" style={{ alignItems: 'initial' }}>
-                <MaterialButton><span style={{ fontStyle: 'italic', fontWeight: 600 }}>NU</span></MaterialButton>
-              </InputAdornment>
-            </>
+            <InputAdornment position="end" style={{ alignItems: 'initial' }} onClick={getMaxNu}>
+              <MaterialButton><span style={{ fontStyle: 'italic', fontWeight: 600 }}>Max</span></MaterialButton>
+            </InputAdornment>
           )} />
         <div style={{ margin: '24px', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}
           className="centered-mobile">

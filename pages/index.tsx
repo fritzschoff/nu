@@ -3,17 +3,40 @@ import Divider from '../components/Divider/Divider'
 import View from '../components/View/View'
 import TabPanel from '../components/TabPanel/TabPanel'
 import Head from 'next/head'
-import { connect, provider } from '../utils/web3';
+import { connect } from '../utils/web3';
 import { useState } from 'react';
-import { createMuiTheme, Tab, Tabs, ThemeProvider } from '@material-ui/core';
+import { createMuiTheme, createStyles, makeStyles, Tab, Tabs, ThemeProvider, Theme } from '@material-ui/core';
 import Stake from '../components/Stake/Stake'
 import Rewards from '../components/Rewards/Rewards'
 import Stats from '../components/Stats/Stats'
 import Flex from '../components/Flex'
 import { createGlobalState } from 'react-use'
-import type { providers } from 'ethers'
+import type { providers } from 'ethers';
+import Modal from '@material-ui/core/Modal';
 
 export const useGlobalValue = createGlobalState<providers.Web3Provider | null>(null);
+
+function getModalStyle() {
+  return {
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
+}
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    modal: {
+      position: 'absolute',
+      width: 'fit-content',
+      backgroundColor: 'white',
+      border: '1px solid #000',
+      boxShadow: theme.shadows[5],
+      borderRadius: '5px',
+      padding: theme.spacing(2, 4, 3)
+    },
+  }),
+);
 
 export default function Home() {
   // Material UI
@@ -30,9 +53,12 @@ export default function Home() {
   const [value, setValue] = useGlobalValue();
 
   // Web3
-  const handleConnect = async () => {
-    const provider = await connect()
-    setValue(provider)
+  const handleConnect = async (chosenProvider: 'metamask' | 'walletConnect') => {
+    const provider = await connect(chosenProvider)
+    if (!!provider) {
+      setValue(provider)
+      handleClose();
+    }
   }
 
   // Tabs
@@ -40,6 +66,17 @@ export default function Home() {
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setIndex(newValue);
+  };
+
+  // Modal
+  const classes = useStyles();
+  const [modalStyle] = useState(getModalStyle);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
   };
   return (
     <>
@@ -73,7 +110,7 @@ export default function Home() {
           <Flex flexDirection="column">
             <h1 style={{ marginBottom: '64px' }}>STAKER<span className="main-color">.</span>PARTY</h1>
             {!value ? (<>
-              <Button onClick={handleConnect}>Connect</Button>
+              <Button onClick={handleOpen}>Connect</Button>
               <section style={{ display: 'flex', marginTop: '240px', marginBottom: '40px' }}>
                 <div style={{ marginRight: '48px' }}>
                   <h2>Open</h2>
@@ -85,9 +122,9 @@ export default function Home() {
                 </div>
               </section>
               <Divider style={{ width: '70%', marginLeft: '0px' }}></Divider>
-              <article style={{ display: 'flex', alignItems: 'center' }}>
+              <article style={{ display: 'flex' }}>
                 <div>
-                  <p style={{ padding: '24px' }}>
+                  <p style={{ margin: '24px 0px', }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <a style={{ fontStyle: 'italic', marginTop: '24px' }}>Telegram</a>
@@ -116,8 +153,30 @@ export default function Home() {
               )
             }
           </Flex>
+          {/* Concent for side panel */}
           <h1>Whatever you want</h1>
         </View>
+        <Modal
+          disablePortal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
+        >
+          <div style={modalStyle} className={classes.modal}>
+            <h1 style={{ textAlign: 'center' }}>Choose a provider </h1>
+            <Button style={{ backgroundColor: 'transparent', fontStyle: 'normal', position: 'absolute', top: 0, right: 0 }}
+              onClick={handleClose}>X</Button>
+            <Flex flexWrap="wrap">
+              <Button style={{ background: 'transparent' }} onClick={() => handleConnect('metamask')}>
+                <img src="/assets/metamask.png" width="200px" height="200px" />
+              </Button>
+              <Button style={{ background: 'transparent' }} onClick={() => handleConnect('walletConnect')}>
+                <img src="/assets/walletConnect.svg" width="200px" height="200px" />
+              </Button>
+            </Flex>
+          </div>
+        </Modal>
       </ThemeProvider>
     </>
   )
