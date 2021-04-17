@@ -1,7 +1,6 @@
-import { FC, useContext, useState } from "react";
+import { FC, useState } from "react";
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { Button as MaterialButton, InputAdornment } from "@material-ui/core";
-import { Web3Context } from "../../contexts/Web3.context";
 import Button from '../Button/Button';
 
 const Stake: FC = () => {
@@ -11,7 +10,6 @@ const Stake: FC = () => {
     console.log(event.target.value)
     setAmount(parseInt(event.target.value, 10));
   }
-  const web3 = useContext(Web3Context)
 
   const getMaxNu = async () => {
     console.info('implement me');

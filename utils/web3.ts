@@ -13,6 +13,7 @@ export async function connect() {
     address = acc[0]
     try {
       provider = new providers.Web3Provider(ethereum())
+      return provider;
     } catch (error) {
       console.error('could not connect')
     }
