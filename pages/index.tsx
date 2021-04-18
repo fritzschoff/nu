@@ -13,6 +13,8 @@ import Flex from '../components/Flex'
 import { createGlobalState } from 'react-use'
 import type { providers } from 'ethers';
 import Modal from '@material-ui/core/Modal';
+import { firebaseConfig } from '../config';
+import firebase from 'firebase'
 
 export const useGlobalValue = createGlobalState<providers.Web3Provider | null>(null);
 
@@ -39,6 +41,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function Home() {
+
+  // Firebase
+  const firebaseApp = firebase.apps.length
+    ? firebase.app('staker-party')
+    : firebase.initializeApp(firebaseConfig, 'staker-party');
+  const db = firebaseApp.firestore();
+
   // Material UI
   const theme = createMuiTheme({
     palette: {
@@ -56,9 +65,15 @@ export default function Home() {
   const handleConnect = async (chosenProvider: 'metamask' | 'walletConnect') => {
     const provider = await connect(chosenProvider)
     if (!!provider) {
+      const address = await provider.getSigner().getAddress();
+      const ref = await db.doc(`users/${address}`).get();
+      const exists = ref.exists
+      if (!exists) {
+        db.collection('users').doc(address).set({ nu: 0 });
+      }
       setValue(provider)
-      handleClose();
     }
+    handleClose();
   }
 
   // Tabs
@@ -129,7 +144,7 @@ export default function Home() {
                       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <a style={{ fontStyle: 'italic', marginTop: '24px' }}>Telegram</a>
                 </div>
-                <img src="/assets/nu.png" alt="nu logo" style={{ width: '72px', height: '72px' }} />
+                <img src="/assets/nu.png" alt="nu logo" style={{ width: '72px', height: '72px', marginLeft: '8px' }} />
               </article>
             </>)
               : (

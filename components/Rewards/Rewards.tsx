@@ -47,7 +47,7 @@ const Rewards: FC = () => {
         </div>
       </article>
       <Divider style={{ marginTop: '32px' }}></Divider>
-      <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 'auto', marginBottom: 'auto' }}>
+      <article style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '24px' }}>
         <OutlinedInput style={{ borderRadius: '15px', width: '100%' }} value={amount} onChange={handleChange} type="number"
           endAdornment={(
             <>
