@@ -2,12 +2,13 @@ import { FC, useState } from "react";
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { Button as MaterialButton, InputAdornment } from "@material-ui/core";
 import Button from '../Button/Button';
+import Email from "../Email/Email";
 
 const Stake: FC = () => {
   const [amount, setAmount] = useState(0);
   const [isApproved, setApproved] = useState(false);
+  const [isClosed, setClosed] = useState(false);
   const handleChange = (event) => {
-    console.log(event.target.value)
     setAmount(parseInt(event.target.value, 10));
   }
 
@@ -24,7 +25,7 @@ const Stake: FC = () => {
   const sendTx = async () => {
 
   }
-  return (
+  return isClosed ? <Email></Email> : (
     <>
       <article style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', paddingTop: '36px' }}>
         <div>
