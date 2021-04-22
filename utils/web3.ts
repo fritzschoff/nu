@@ -1,5 +1,5 @@
 import WalletConnectProvider from '@walletconnect/web3-provider';
-import { providers } from 'ethers'
+import { constants, Contract, providers } from 'ethers'
 
 export let provider: providers.Web3Provider;
 export let address: string;
@@ -23,7 +23,7 @@ export async function connect(chosenProvider: 'metamask' | 'walletConnect') {
   } else {
     try {
       const walletConnectProvider = new WalletConnectProvider({
-        infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
+        infuraId: process.env['infura'],
       });
       await walletConnectProvider.enable();
       provider = new providers.Web3Provider(walletConnectProvider)
@@ -33,3 +33,9 @@ export async function connect(chosenProvider: 'metamask' | 'walletConnect') {
     }
   }
 }
+
+export const poolContract = new Contract(constants.AddressZero, [
+  'function isDepositAllowed() public view returns (bool)',
+  'function isWithdrawAllAllowed() public view returns (bool)',
+  'function depositTokens(uint256 _value) external',
+  'function withdrawTokens(uint256 _value) public'])
