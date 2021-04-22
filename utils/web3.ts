@@ -39,3 +39,7 @@ export const poolContract = new Contract(constants.AddressZero, [
   'function isWithdrawAllAllowed() public view returns (bool)',
   'function depositTokens(uint256 _value) external',
   'function withdrawTokens(uint256 _value) public'])
+
+export const nuERC20 = new Contract(constants.AddressZero, [
+  'function approve(address spender, uint256 amount) public returns (bool)'
+])
